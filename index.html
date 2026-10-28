@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Er. Ujit Narayan Rajbanshi — IT Expert, online instructor, and technology consultant.">
+  <title>Er. Ujit Narayan Rajbanshi | IT Expert</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --brand: #5267e8;
+      --brand-dark: #3d4fc7;
+      --soft: #f5f7ff;
+      --line: #e8ebf3;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4, .navbar-brand { font-family: "Manrope", sans-serif; }
+    a { text-decoration: none; }
+    .section { padding: 96px 0; }
+    .section-soft { background: var(--soft); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--brand); background: #eef0ff;
+      border-radius: 999px; padding: 7px 13px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .section-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.045em; }
+    .section-copy { color: var(--muted); max-width: 650px; }
+    .navbar {
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(232,235,243,.85);
+    }
+    .navbar-brand { font-weight: 800; letter-spacing: -.04em; color: var(--ink); }
+    .brand-mark {
+      display: inline-grid; place-items: center; width: 38px; height: 38px;
+      border-radius: 12px; color: white; background: var(--brand);
+      margin-right: 8px; font-size: .85rem;
+    }
+    .nav-link { color: #525b6d; font-weight: 600; font-size: .9rem; margin: 0 3px; }
+    .nav-link:hover, .nav-link.active { color: var(--brand); }
+    .btn-brand {
+      background: var(--brand); color: white; border: 1px solid var(--brand);
+      padding: 12px 20px; border-radius: 12px; font-weight: 700;
+      transition: .2s ease;
+    }
+    .btn-brand:hover { background: var(--brand-dark); color: white; transform: translateY(-2px); }
+    .btn-outline-brand {
+      border: 1px solid #d9defa; color: var(--ink); padding: 12px 20px;
+      border-radius: 12px; font-weight: 700; background: white;
+    }
+    .btn-outline-brand:hover { border-color: var(--brand); color: var(--brand); }
+    .hero {
+      min-height: 90vh; display: flex; align-items: center; overflow: hidden;
+      padding: 130px 0 80px; position: relative;
+      background: radial-gradient(circle at 84% 24%, #eef0ff 0, transparent 28%),
+                  radial-gradient(circle at 10% 90%, #f1f8ff 0, transparent 30%), #fff;
+    }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.08; font-weight: 800; letter-spacing: -.065em; }
+    .text-brand { color: var(--brand); }
+    .hero-lead { color: var(--muted); font-size: 1.08rem; max-width: 610px; }
+    .hero-photo-wrap { position: relative; max-width: 390px; margin: 0 auto; }
+    .hero-photo {
+      width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover;
+      border-radius: 32px; background: linear-gradient(145deg, #e4e8ff, #f4f6ff);
+      border: 8px solid rgba(255,255,255,.9); box-shadow: 0 25px 70px rgba(39,52,120,.15);
+    }
+    .photo-placeholder {
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      color: #7a84bd; text-align: center; padding: 25px;
+    }
+    .photo-placeholder i { font-size: 5rem; margin-bottom: 12px; }
+    .floating-note {
+      position: absolute; bottom: 26px; left: -30px; background: white;
+      padding: 13px 17px; border-radius: 16px; box-shadow: 0 12px 35px #1c2b5617;
+      font-weight: 700; font-size: .9rem;
+    }
+    .floating-note i { color: var(--brand); margin-right: 7px; }
+    .social-row a {
+      width: 42px; height: 42px; display: inline-grid; place-items: center;
+      border: 1px solid var(--line); border-radius: 12px; color: var(--ink);
+      margin-right: 8px; transition: .2s;
+    }
+    .social-row a:hover { background: var(--brand); border-color: var(--brand); color: white; }
+    .stat-card, .service-card, .material-card, .experience-card {
+      background: white; border: 1px solid var(--line); border-radius: 20px;
+      padding: 26px; height: 100%; transition: .25s ease;
+    }
+    .service-card:hover, .material-card:hover, .experience-card:hover {
+      transform: translateY(-5px); box-shadow: 0 18px 45px rgba(28,39,84,.07);
+      border-color: #d9defa;
+    }
+    .icon-box {
+      width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center;
+      color: var(--brand); background: #eef0ff; font-size: 1.4rem; margin-bottom: 20px;
+    }
+    .service-card h3, .material-card h3 { font-size: 1.15rem; font-weight: 800; }
+    .muted { color: var(--muted); }
+    .tag {
+      display: inline-block; padding: 5px 10px; border-radius: 8px;
+      color: #4d5dd0; background: #f0f2ff; font-size: .78rem; font-weight: 700; margin: 3px 4px 3px 0;
+    }
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 9px; bottom: 10px; width: 2px; background: #dfe3fb; }
+    .timeline-item { position: relative; margin-bottom: 26px; }
+    .timeline-item::before {
+      content: ""; position: absolute; left: -28px; top: 7px; width: 14px; height: 14px;
+      border: 3px solid var(--brand); background: white; border-radius: 50%;
+    }
+    .timeline-item h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 5px; }
+    .timeline-date { color: var(--brand); font-size: .82rem; font-weight: 700; }
+    .material-card .material-icon { font-size: 2rem; color: var(--brand); }
+    .material-card .btn { margin-top: 10px; }
+    .contact-panel {
+      background: #171f3b; color: white; border-radius: 28px; padding: clamp(28px, 5vw, 58px);
+      position: relative; overflow: hidden;
+    }
+    .contact-panel::after {
+      content: ""; position: absolute; width: 300px; height: 300px; border-radius: 50%;
+      border: 55px solid rgba(255,255,255,.045); right: -80px; top: -100px; pointer-events: none;
+    }
+    .contact-panel .muted { color: #c4c9da; }
+    .contact-link {
+      display: flex; align-items: center; gap: 13px; color: white;
+      border: 1px solid #ffffff22; padding: 14px 16px; border-radius: 14px;
+      background: #ffffff08; margin-bottom: 12px; position: relative; z-index: 1;
+    }
+    .contact-link:hover { color: white; background: #ffffff14; }
+    .contact-link i { font-size: 1.3rem; color: #aeb8ff; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .9rem; }
+    .upload-label { cursor: pointer; font-size: .85rem; color: var(--brand); font-weight: 700; }
+    #profileUpload { display: none; }
+    .small-note { font-size: .8rem; color: var(--muted); }
+    @media (max-width: 991px) {
+      .navbar-collapse { padding: 12px 0 18px; }
+      .hero { min-height: auto; padding-top: 120px; }
+      .hero-photo-wrap { max-width: 330px; margin-top: 30px; }
+      .floating-note { left: -10px; }
+      .section { padding: 72px 0; }
+    }
+    @media (max-width: 575px) {
+      .hero h1 { font-size: 2.75rem; }
+      .floating-note { left: 0; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="Go to home">
+        <span class="brand-mark">UR</span> Ujit Rajbanshi
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiences">EXPERIENCES</a></li>
+          <li class="nav-item"><a class="nav-link" href="#training">TRAINING MATERIALS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#expertize">EXPERTIZE</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-brand btn-sm px-3" href="#contact">CONTACT <i class="bi bi-arrow-up-right ms-1"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="eyebrow mb-4"><i class="bi bi-stars"></i> Technology • Learning • Innovation</span>
+          <h1 class="mb-3">Hello, I'm<br><span class="text-brand">Er. Ujit Narayan Rajbanshi</span></h1>
+          <h2 class="h4 fw-bold mb-3">IT Expert & Technology Mentor</h2>
+          <p class="hero-lead mb-4">I am here to support your journey towards mastering technology and achieving career success. My role is to guide you through the complexities of IT, making learning engaging and effective.</p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a class="btn btn-brand" href="#training">Explore Learning <i class="bi bi-arrow-right ms-2"></i></a>
+            <a class="btn btn-outline-brand" href="#contact">Let's Connect</a>
+          </div>
+          <div class="social-row">
+            <a href="https://www.facebook.com/rajbanshi.ujit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#contact" aria-label="Email contact"><i class="bi bi-envelope"></i></a>
+            <a href="#expertize" aria-label="Expertise"><i class="bi bi-code-slash"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-photo-wrap">
+            <div id="photoFrame" class="hero-photo photo-placeholder">
+              <i class="bi bi-person-bounding-box"></i>
+              <strong class="fs-5">Your Profile Photo</strong>
+              <span class="small">Add a photo using the option below</span>
+            </div>
+            <div class="floating-note"><i class="bi bi-patch-check-fill"></i> Learn. Build. Grow.</div>
+            <div class="text-center mt-3">
+              <label for="profileUpload" class="upload-label"><i class="bi bi-camera me-1"></i> Upload profile picture</label>
+              <input id="profileUpload" type="file" accept="image/*">
+              <div class="small-note">Photo preview is local to this browser and is not uploaded to a server.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- What I Offer -->
+  <section class="section" id="expertize">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="eyebrow mb-3">What I Offer</span>
+        <h2 class="section-title">Technology made practical</h2>
+        <p class="section-copy mx-auto">Whether you're learning to code or helping your organization work smarter, I'll help you move from ideas to practical solutions.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="service-card">
+            <div class="icon-box"><i class="bi bi-camera-video"></i></div>
+            <h3>Online Classes</h3>
+            <p class="muted">Learn modern technologies through clear explanations, practical examples, and project-based sessions.</p>
+            <span class="tag">Artificial Intelligence</span><span class="tag">Python</span><span class="tag">Django</span>
+            <a href="#contact" class="d-block fw-bold mt-3">Ask about classes <i class="bi bi-arrow-up-right ms-1"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="service-card">
+            <div class="icon-box"><i class="bi bi-building-gear"></i></div>
+            <h3>Technology Consultation</h3>
+            <p class="muted">Help organizations become more digital, improve workflows, and identify opportunities to increase revenue.</p>
+            <span class="tag">Digital Transformation</span><span class="tag">Process Improvement</span>
+            <a href="#contact" class="d-block fw-bold mt-3">Discuss your project <i class="bi bi-arrow-up-right ms-1"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="service-card">
+            <div class="icon-box"><i class="bi bi-journal-code"></i></div>
+            <h3>Learning Resources</h3>
+            <p class="muted">Explore learning notes, curated videos, useful links, and training materials to strengthen your skills.</p>
+            <span class="tag">Tutorials</span><span class="tag">Study Notes</span>
+            <a href="#training" class="d-block fw-bold mt-3">Browse resources <i class="bi bi-arrow-up-right ms-1"></i></a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences -->
+  <section class="section section-soft" id="experiences">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5">
+          <span class="eyebrow mb-3">Experiences</span>
+          <h2 class="section-title mb-3">Turning technology into impact.</h2>
+          <p class="section-copy">My focus is on making technology easier to understand, useful in real-world settings, and accessible to learners and organizations.</p>
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <span class="tag">IT Training</span><span class="tag">Software & Web</span>
+            <span class="tag">Digital Services</span><span class="tag">Consultation</span>
+          </div>
+          <p class="small-note mt-3">Customize the experience entries below with your verified roles, organizations, and dates before publishing.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">IT & DIGITAL SOLUTIONS</div>
+              <h3>IT Expert / Technology Professional</h3>
+              <p class="muted mb-0">Supporting technology adoption, digital problem-solving, and practical IT solutions. Add your organization and employment dates here.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">TEACHING & MENTORING</div>
+              <h3>Online Instructor & Trainer</h3>
+              <p class="muted mb-0">Helping learners build skills in AI, Python, Django, and related technologies through structured learning and hands-on practice.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">CONSULTATION & INNOVATION</div>
+              <h3>Technology Consultant</h3>
+              <p class="muted mb-0">Guiding organizations towards digital workflows and technology choices that support efficiency and sustainable growth.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Materials -->
+  <section class="section" id="training">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-5">
+        <div>
+          <span class="eyebrow mb-3">Keep Learning</span>
+          <h2 class="section-title mb-2">Training materials</h2>
+          <p class="section-copy mb-0">A starting point for your learning library. Replace the sample links with your own videos, notes, PDFs, or course pages.</p>
+        </div>
+        <a class="btn btn-outline-brand flex-shrink-0" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Explore YouTube <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="material-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <i class="bi bi-robot material-icon"></i><span class="tag">AI</span>
+            </div>
+            <h3>Artificial Intelligence</h3>
+            <p class="muted">Start exploring AI concepts, real-world use cases, and tools that can support learning and productivity.</p>
+            <a class="btn btn-outline-brand btn-sm" href="https://www.youtube.com/results?search_query=artificial+intelligence+for+beginners" target="_blank" rel="noopener noreferrer">Watch lessons <i class="bi bi-play-circle ms-1"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="material-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <i class="bi bi-filetype-py material-icon"></i><span class="tag">Programming</span>
+            </div>
+            <h3>Python Programming</h3>
+            <p class="muted">Build a strong foundation in Python syntax, logic, functions, data structures, and practical projects.</p>
+            <a class="btn btn-outline-brand btn-sm" href="https://www.youtube.com/results?search_query=python+programming+for+beginners" target="_blank" rel="noopener noreferrer">Watch lessons <i class="bi bi-play-circle ms-1"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="material-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <i class="bi bi-globe2 material-icon"></i><span class="tag">Web Development</span>
+            </div>
+            <h3>Django Framework</h3>
+            <p class="muted">Learn how to build web applications with Django, from project setup to models, views, and deployment.</p>
+            <a class="btn btn-outline-brand btn-sm" href="https://www.youtube.com/results?search_query=django+web+development+tutorial" target="_blank" rel="noopener noreferrer">Watch lessons <i class="bi bi-play-circle ms-1"></i></a>
+          </article>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p class="small-note mb-0"><i class="bi bi-info-circle me-1"></i> These are sample search links. Add your own training videos, course files, or downloadable notes when ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-soft" id="contact">
+    <div class="container">
+      <div class="contact-panel">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="eyebrow mb-3">Contact</span>
+            <h2 class="section-title text-white mb-3">Let's build something meaningful.</h2>
+            <p class="muted mb-4">Have a question about online classes, training, or digital transformation? Connect with me and let's discuss how technology can help.</p>
+            <a class="btn btn-light fw-bold px-4 py-3" href="https://www.facebook.com/rajbanshi.ujit" target="_blank" rel="noopener noreferrer">Message me on Facebook <i class="bi bi-arrow-up-right ms-2"></i></a>
+          </div>
+          <div class="col-lg-5">
+            <a class="contact-link" href="https://www.facebook.com/rajbanshi.ujit" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-facebook"></i><span><strong class="d-block">Facebook</strong><small class="muted">facebook.com/rajbanshi.ujit</small></span><i class="bi bi-arrow-up-right ms-auto"></i>
+            </a>
+            <a class="contact-link" href="#training">
+              <i class="bi bi-play-btn"></i><span><strong class="d-block">Training & Videos</strong><small class="muted">Explore learning resources</small></span><i class="bi bi-arrow-up-right ms-auto"></i>
+            </a>
+            <a class="contact-link" href="#expertize">
+              <i class="bi bi-chat-square-text"></i><span><strong class="d-block">Consultation</strong><small class="muted">Discuss your digital goals</small></span><i class="bi bi-arrow-up-right ms-auto"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>© <span id="year"></span> Er. Ujit Narayan Rajbanshi. All rights reserved.</span>
+      <span>Designed with <i class="bi bi-heart-fill text-brand"></i> and a passion for technology.</span>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="btn btn-brand position-fixed bottom-0 end-0 m-4 rounded-circle d-none" style="width:48px;height:48px;padding:0;z-index:1000" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Current year in the footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Preview a profile photo selected from this device
+    const profileUpload = document.getElementById("profileUpload");
+    const photoFrame = document.getElementById("photoFrame");
+
+    profileUpload.addEventListener("change", function (event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith("image/")) {
+        alert("Please choose an image file.");
+        profileUpload.value = "";
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function (loadEvent) {
+        photoFrame.className = "hero-photo";
+        photoFrame.innerHTML = "";
+        photoFrame.style.backgroundImage = "url('" + loadEvent.target.result + "')";
+        photoFrame.style.backgroundSize = "cover";
+        photoFrame.style.backgroundPosition = "center";
+        photoFrame.style.display = "block";
+        photoFrame.setAttribute("role", "img");
+        photoFrame.setAttribute("aria-label", "Profile photo of Er. Ujit Narayan Rajbanshi");
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Smoothly close the mobile menu after a navigation link is selected
+    document.querySelectorAll("#mainNav .nav-link, #mainNav .btn").forEach(function (link) {
+      link.addEventListener("click", function () {
+        const nav = document.getElementById("mainNav");
+        if (nav.classList.contains("show")) {
+          bootstrap.Collapse.getOrCreateInstance(nav).hide();
+        }
+      });
+    });
+
+    // Highlight the active section in the navigation
+    const sections = document.querySelectorAll("header[id], section[id]");
+    const navLinks = document.querySelectorAll(".navbar .nav-link");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    sections.forEach((section) => observer.observe(section));
+
+    // Back-to-top button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("d-none", window.scrollY < 450);
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  </script>
+</body>
+</html>
